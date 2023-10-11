@@ -1,6 +1,7 @@
 package com.HolaMundo;
 
 import com.HolaMundo.domain.Persona;
+import java.util.ArrayList;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -26,11 +27,24 @@ public class ControladorInicio {
         persona.setEmail("Daniel@ruales.com");
         persona.setTelefono("1453415");
         
+        var persona2 = new Persona();
+        persona2.setNombre("Karla");
+        persona2.setApellido("Gomez");
+        persona2.setEmail("Karla@rs.com");
+        persona2.setTelefono("1453415");
+        
+        
+        var personas = new ArrayList();
+        personas.add(persona);
+        personas.add(persona2);
+        
+        
         log.info("Ejecuntando el controlador  Spring MVC");
         //Llave, valor
         model.addAttribute("mensaje", mensaje);
         model.addAttribute("saludo", saludo);
-        model.addAttribute("persona", persona);
+        //model.addAttribute("persona", persona);
+        model.addAttribute("persona", personas);
         
         
         return "index";
